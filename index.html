@@ -1,10 +1,62 @@
+<!DOCTYPE html>
 
 <html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <h1> This is test </h1>  
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA France [1173] Projet [44]</title>
+  
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js"></script>
+  <script src="https://wpn.mydialoginsight.com/T/OFC4/WPS/44/57/KCYsuyX04hdvPPoO14fI2eYTOixxSgnk/DI.WebPush-min.js"></script>
+  
+</head>
+<body>
+	
+<p> QA France [1173] Projet [44] </p>
+	
+<label>Adresse courriel du contact</label>
+<input id="email" type="text" style="width:300px;" />
+<input type="button" value="Identifier le contact" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
+<input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
+<br/><br/>
+<input type="button" value="DI.WebPush.RequestPermission('fr')" onclick="DI.WebPush.RequestPermission('fr');" />
+<input type="button" value="DI.WebPush.RequestPermission('en')" onclick="DI.WebPush.RequestPermission('en');"  />
+<input type="button" value="DI.WebPush.RequestPermission('de')" onclick="DI.WebPush.RequestPermission('de');"  />
+<br><br/>
+<input type="button" value="Reload page" onclick="location.reload();"  /><br/>
+<script>
+										 
+	if(DI.WebPush.isSupported()){
+		document.write("<br><br>DI.WebPush.isSupported() : Navigateur supporte webpush<br>");
+	}
+	else{
+		document.write("DI.WebPush.isSupported() : Navigateur ne supporte pas webpush<br>");
+	}	
+	if(DI.WebPush.isSubscribed()){
+		document.write("DI.WebPush.isSubscribed() : WebPush autorisés<br>");
+	}
+	else{
+		document.write("DI.WebPush.isSubscribed() : WebPush non autorisés<br>");
+	}	
+	if(DI.WebPush.isBlocked()){
+		document.write("DI.WebPush.isBlocked() : WebPush bloqué<br>");
+	}
+	else{
+		document.write("DI.WebPush.isBlocked() : WebPush non bloqué<br>");
+	}
+
+document.write("<p>Browser CodeName: " + navigator.appCodeName + "</p>");
+document.write("<p>Browser Name: " + navigator.appName + "</p>");
+document.write("<p>Browser Version: " + navigator.appVersion + "</p>");
+document.write("<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>");
+document.write("<p>Browser Language: " + navigator.language + "</p>");
+document.write("<p>Browser Online: " + navigator.onLine + "</p>");
+document.write("<p>Platform: " + navigator.platform + "</p>");
+document.write("<p>User-agent header: " + navigator.userAgent + "</p>");
+</script>
+
+
+</body>
 </html>
